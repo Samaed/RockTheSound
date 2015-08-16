@@ -1,0 +1,336 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{BA3136A5-6F35-4981-BF4E-E6D32335F13C}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RTS</RootNamespace>
+    <AssemblyName>RTS</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="irrKlang.NET4, Version=1.0.4534.25937, Culture=neutral, PublicKeyToken=a854741bd80517c7, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\irrKlang.NET4.dll</HintPath>
+    </Reference>
+    <Reference Include="NAudio, Version=1.6.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Mes documents\NAudio\NAudio.dll</HintPath>
+    </Reference>
+    <Reference Include="NAudio.WindowsMediaFormat, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Mes documents\NAudio\NAudio.WindowsMediaFormat.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controller\MIDI\MIDIController.cs" />
+    <Compile Include="Controller\MIDI\NoteID\NoteIDComparer.cs" />
+    <Compile Include="Controller\PadsManager.cs" />
+    <Compile Include="Controller\Export\ExportController.cs" />
+    <Compile Include="Controller\Record\DatedSounds.cs" />
+    <Compile Include="Controller\Record\SequenceController.cs" />
+    <Compile Include="Controller\Record\RecordThreadParameters.cs" />
+    <Compile Include="Controller\ShortcutManager.cs" />
+    <Compile Include="Event\ErrorEvent.cs" />
+    <Compile Include="Event\Event.cs" />
+    <Compile Include="Event\Export\ExportEvent.cs" />
+    <Compile Include="Event\Export\StartEvent.cs" />
+    <Compile Include="Event\Export\StopEvent.cs" />
+    <Compile Include="Event\Library\LibraryEvent.cs" />
+    <Compile Include="Event\Metronome\SpeedEvent.cs" />
+    <Compile Include="Event\Metronome\StopEvent.cs" />
+    <Compile Include="Event\Metronome\MetronomeEvent.cs" />
+    <Compile Include="Event\Metronome\PlayEvent.cs" />
+    <Compile Include="Event\Network\NetworkEvent.cs" />
+    <Compile Include="Event\Playback\EndEvent.cs" />
+    <Compile Include="Event\Playback\UnLoopEvent.cs" />
+    <Compile Include="Event\Playback\LoopEvent.cs" />
+    <Compile Include="Event\Playback\PauseEvent.cs" />
+    <Compile Include="Event\Playback\PlaybackEvent.cs" />
+    <Compile Include="Event\Playback\PlayEvent.cs" />
+    <Compile Include="Event\Playback\ResumeEvent.cs" />
+    <Compile Include="Event\Playback\StopEvent.cs" />
+    <Compile Include="Event\Record\RecordEvent.cs" />
+    <Compile Include="Event\Record\StartEvent.cs" />
+    <Compile Include="Event\Record\StopEvent.cs" />
+    <Compile Include="Event\Record\UpdateEvent.cs" />
+    <Compile Include="Event\VolumeEvent.cs" />
+    <Compile Include="Model\AffectedSound.cs" />
+    <Compile Include="Model\MetronomeModel.cs" />
+    <Compile Include="Model\Network\Friend.cs" />
+    <Compile Include="Controller\XMLShortcutManager.cs" />
+    <Compile Include="Controller\MIDI\NoteID\NoteID.cs" />
+    <Compile Include="Program.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="SoundCloudApi\OpenSourceProject\HttpUploadHelper.cs" />
+    <Compile Include="SoundCloudApi\OpenSourceProject\MimePart.cs" />
+    <Compile Include="SoundCloudApi\SoundCloudUpload.cs" />
+    <Compile Include="SoundCloudApi\OpenSourceProject\StreamMimePart.cs" />
+    <Compile Include="SoundCloudApi\OpenSourceProject\StringMimePart.cs" />
+    <Compile Include="SoundCloudApi\OpenSourceProject\UploadFile.cs" />
+    <Compile Include="Tools\BiDictionnary.cs" />
+    <Compile Include="View\Controls\ConfigurationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Controls\ConfigurationForm.Designer.cs">
+      <DependentUpon>ConfigurationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tools\StringUtils.cs" />
+    <Compile Include="View\Controls\SoundCloudExporter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Controls\SoundCloudExporter.Designer.cs">
+      <DependentUpon>SoundCloudExporter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Controls\TimeLine.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Controls\TimeLine.Designer.cs">
+      <DependentUpon>TimeLine.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Controls\PadView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Popup\ShortcutPopup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Popup\ShortcutPopup.Designer.cs">
+      <DependentUpon>ShortcutPopup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Controls\SoundLibrary.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Controls\SoundLibrary.Designer.cs">
+      <DependentUpon>SoundLibrary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Popup\SoundLibraryExplorer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Popup\SoundLibraryExplorer.Designer.cs">
+      <DependentUpon>SoundLibraryExplorer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\SoundLibraryModel.cs" />
+    <Compile Include="Tools\LRC.cs" />
+    <Compile Include="Tools\TimeLimiter.cs" />
+    <Compile Include="Tools\FileAccessor.cs" />
+    <Compile Include="Model\Sound.cs" />
+    <Compile Include="View\Controls\ConsoleView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View\MainFrame.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\MainFrame.Designer.cs">
+      <DependentUpon>MainFrame.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Model.cs" />
+    <Compile Include="Observer\Observable.cs" />
+    <Compile Include="Observer\Observer.cs" />
+    <Compile Include="Controller\Network\NetworkConnection.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="View\Controls\ConfigurationForm.resx">
+      <DependentUpon>ConfigurationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Controls\SoundCloudExporter.resx">
+      <DependentUpon>SoundCloudExporter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Controls\TimeLine.resx">
+      <DependentUpon>TimeLine.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Controls\PadView.resx">
+      <DependentUpon>PadView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Controls\SoundLibrary.resx">
+      <DependentUpon>SoundLibrary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Popup\ShortcutPopup.resx">
+      <DependentUpon>ShortcutPopup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Popup\SoundLibraryExplorer.resx">
+      <DependentUpon>SoundLibraryExplorer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\MainFrame.resx">
+      <DependentUpon>MainFrame.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Resources\App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 Client Profile %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ikpFlac.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="lib\ikpFlac.dll" />
+    <Content Include="lib\ikpMP3.dll" />
+    <Content Include="lib\irrKlang.NET4.dll" />
+    <Content Include="lib\NAudio.dll" />
+    <Content Include="lib\NAudio.WindowsMediaFormat.dll" />
+    <Content Include="lib\NAudio.xml" />
+    <Content Include="Resources\add.png" />
+    <None Include="Sequencer.png" />
+    <None Include="Sequencer.jpg" />
+    <None Include="Resources\volumebutton.png" />
+    <None Include="Resources\add1.png" />
+    <Content Include="Resources\basse1.wav" />
+    <None Include="Resources\whitepad.png" />
+    <None Include="Resources\ledoff.png" />
+    <None Include="Resources\ledon.png" />
+    <None Include="Resources\ledoff1.png" />
+    <None Include="Resources\ledon1.png" />
+    <None Include="Resources\key.png" />
+    <None Include="Resources\shortcut.png" />
+    <None Include="Resources\shortcut2.png" />
+    <None Include="Resources\shortcut21.png" />
+    <Content Include="Resources\connect2.png" />
+    <Content Include="Resources\delete.png" />
+    <None Include="Resources\delete1.png" />
+    <Content Include="Resources\effect.jpg" />
+    <None Include="Resources\effect1.jpg" />
+    <Content Include="ikpMP3.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\grid.png" />
+    <Content Include="Resources\loop.png" />
+    <None Include="Resources\loop2.png" />
+    <Content Include="Resources\metronome2.png" />
+    <Content Include="Resources\play2.png" />
+    <None Include="Resources\redthegird.jpg" />
+    <Content Include="Resources\reset.png" />
+    <None Include="Resources\reset2.png" />
+    <Content Include="Resources\save2.png" />
+    <None Include="Resources\Sequencer.png" />
+    <Content Include="Resources\soundwave.png" />
+    <Content Include="Resources\stop2.png" />
+    <Content Include="Resources\toc.wav" />
+    <None Include="Resources\metronome.png" />
+    <None Include="Resources\stop.png" />
+    <None Include="Resources\save.png" />
+    <None Include="Resources\play.png" />
+    <None Include="Resources\metal.png" />
+    <None Include="Resources\volume3.png" />
+    <None Include="Resources\redpad.png" />
+    <None Include="Resources\connect.png" />
+    <Content Include="Resources\greenpad.png" />
+    <None Include="Resources\bluepad.png" />
+    <None Include="Resources\round.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Pad\TwoStateButton.csproj">
+      <Project>{477b7455-7f22-469d-93e6-7d43607f1548}</Project>
+      <Name>TwoStateButton</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Potentiometer\Potentiometer.csproj">
+      <Project>{fe4eda9c-9788-4d64-8982-a41a8570191b}</Project>
+      <Name>Potentiometer</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
